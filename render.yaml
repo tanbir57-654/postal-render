@@ -1,16 +1,23 @@
 services:
-    - type: pserv
-    name: postal-db
-    env: docker
-    image: mariadb:10.11
-    plan: free
-    - type: pserv
-    name: postal-rabbit
-    env: docker
-    image: rabbitmq:3
-    plan: free
-    - type: web
-    name: postal-web
-    env: docker
-    image: ghcr.io/postalserver/postal:latest
-    plan: free
+- type: pserv
+  name: postal-db
+  env: docker
+  image: mariadb:10.11
+  plan: free
+  envVars:
+    - key: MYSQL_ROOT_PASSWORD
+    value: postal123
+    - key: MYSQL_DATABASE
+    value: postal
+
+- type: pserv
+  name: postal-rabbit
+  env: docker
+  image: rabbitmq:3
+  plan: free
+
+- type: web
+  name: postal-web
+  env: docker
+  image: ghcr.io/postalserver/postal:latest
+  plan: free
