@@ -4,18 +4,11 @@ services:
   env: docker
   image: mariadb:10.11
   plan: free
-  envVars:
-    - key: MYSQL_ROOT_PASSWORD
-    value: postal123
-    - key: MYSQL_DATABASE
-    value: postal
-
 - type: pserv
   name: postal-rabbit
   env: docker
   image: rabbitmq:3
   plan: free
-
 - type: web
   name: postal-web
   env: docker
