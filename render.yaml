@@ -1,18 +1,4 @@
 services:
-- type: pserv
-  name: postal-db
-  env: docker
-  plan: free
-  image:
-    url: mariadb:10.11
-
-- type: pserv
-  name: postal-rabbit
-  env: docker
-  plan: free
-  image:
-    url: rabbitmq:3
-
 - type: web
   name: postal-web
   env: docker
